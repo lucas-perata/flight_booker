@@ -1,3 +1,16 @@
-<% @flights.each do |f| %>
-    <%= f.arrival_airport.code %>
+<%= form_with method: :get do |form| %>
+
+    <%= form.label :departure_airport %>
+    <%= select_tag(:airport, options_for_select(@airport_options)) %> <br>
+
+    <%= form.label :arrival_airport %>
+    <%= select_tag(:airport, options_for_select(@airport_options)) %> <br>
+  
+    <%= form.label :date %>
+    <%= form.date_field :date %> <br>
+
+    <%= form.label :passengers %>
+    <%= form.select :passengers, (1..4) %> <br>
+
+    <%= form.submit %>
 <% end %>
