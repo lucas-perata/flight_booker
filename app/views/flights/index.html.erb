@@ -1,10 +1,10 @@
-<%= form_with method: :get do |form| %>
+<%= form_with url: "/flights", method: :get do |form| %>
 
     <%= form.label :departure_airport %>
-    <%= select_tag(:airport, options_for_select(@airport_options)) %> <br>
+    <%= select_tag(:departure_airport, options_for_select(@airport_options, selected: params[:to_airport_id])) %> <br>
 
     <%= form.label :arrival_airport %>
-    <%= select_tag(:airport, options_for_select(@airport_options)) %> <br>
+    <%= select_tag(:arrival_airport_id, options_for_select(@airport_options, selected: params[:arrival_airport_id])) %> <br>
   
     <%= form.label :date %>
     <%= form.date_field :date %> <br>
@@ -12,5 +12,12 @@
     <%= form.label :passengers %>
     <%= form.select :passengers, (1..4) %> <br>
 
-    <%= form.submit %>
+    <%= form.submit %> 
+<% end %>
+
+<% unless  @available_flight.nil? %>
+        <% if @available_flight.any? %>
+    <%= Airport.find(params[:arrival_airport_id]).code %>
+    
+<% end %>
 <% end %>
