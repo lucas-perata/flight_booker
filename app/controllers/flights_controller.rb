@@ -18,10 +18,10 @@ class FlightsController < ApplicationController
 
     def create 
       @flight = Flight.new(flight_params)
-
+      @airport_options = Airport.all.map {|a| [a.code, a.id]}
       respond_to do |format|
         if @flight.save
-        format.html { redirect_to event_url(@flight), notice: "Flight was successfully created." }
+        format.html { redirect_to flight_path(@flight), notice: "Flight was successfully created." }
       else 
          format.html { render :new, status: :unprocessable_entity }
       end 

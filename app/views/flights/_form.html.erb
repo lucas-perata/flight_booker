@@ -1,16 +1,27 @@
-<%= form_with url: "/flights", method: :post do |form| %>
+<%= form_with(model: @flight) do |form| %>
 
-    <%= form.label :departure_airport %>
-    <%= select_tag(:departure_airport_id, options_for_select(@airport_options, selected: params[:departure_airport_id])) %> <br>
 
-    <%= form.label :arrival_airport %>
-    <%= select_tag(:arrival_airport_id, options_for_select(@airport_options, selected: params[:arrival_airport_id])) %> <br>
-  
-    <%= form.label :scheduled_on %>
-    <%= form.date_field :scheduled_on %> <br>
+  <div>
+    <%= form.label :scheduled_on, style: "display: block" %>
+    <%= form.date_field :scheduled_on %>
+  </div>
 
-    <%= form.label :duration %>
-    <%= form.number_field :duration  %>
+  <div>
+    <%= form.label :departure_airport_id, style: "display: block" %>
+    <%= form.number_field :departure_airport_id %>
+  </div>
 
-    <%= form.submit %> 
+  <div>
+    <%= form.label :arrival_airport_id, style: "display: block" %>
+    <%= form.number_field :arrival_airport_id %>
+  </div>
+
+  <div>
+    <%= form.label :duration, style: "display: block" %>
+    <%= form.number_field :duration %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>
