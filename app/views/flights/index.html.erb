@@ -16,14 +16,22 @@
 <% end %>
 
 <% unless  @available_flight.nil? %>
-        <% if @available_flight.any? %>
+    <% if @available_flight.any? %>
+
     <div>El vuelo sale desde:</div>
     <%= Airport.find(params[:departure_airport_id]).code %>
     <div>Destino a:</div>
     <%= Airport.find(params[:arrival_airport_id]).code %>
-<% end %>
+    <div>Fecha de salida:</div>
+    <%= Flight.find_by(scheduled_on: params[:date]).scheduled_on %>
+    <div>Pasajes a sacar:</div>
+    <%= params[:passengers] %>
+
+    <% end %>
 <% end %>
 
-<%= link_to "form", new_flight_path %>
+<br>
+
+<%= link_to "form", new_flight_path %> <br>
 
 <%= render 'show' %>

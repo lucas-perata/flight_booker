@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Airport.create(code: "SFC")
-# Airport.create(code: "ARS")
+ Airport.create(code: "ARS")
 
 #Flight.create(departure_airport_id: 1, arrival_airport_id: 2, duration: 2, scheduled_on: 01/01/1996)
 
-Flight.create(departure_airport_id: 2, arrival_airport_id: 1, duration: 2, scheduled_on: 01/01/1996)
+#Flight.create(departure_airport_id: 2, arrival_airport_id: 1, duration: 2, scheduled_on: 01/01/1996)
