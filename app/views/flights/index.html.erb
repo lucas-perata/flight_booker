@@ -1,7 +1,7 @@
 <%= form_with url: "/flights", method: :get do |form| %>
 
     <%= form.label :departure_airport %>
-    <%= select_tag(:departure_airport, options_for_select(@airport_options, selected: params[:to_airport_id])) %> <br>
+    <%= select_tag(:departure_airport_id, options_for_select(@airport_options, selected: params[:departure_airport_id])) %> <br>
 
     <%= form.label :arrival_airport %>
     <%= select_tag(:arrival_airport_id, options_for_select(@airport_options, selected: params[:arrival_airport_id])) %> <br>
@@ -17,7 +17,13 @@
 
 <% unless  @available_flight.nil? %>
         <% if @available_flight.any? %>
+    <div>El vuelo sale desde:</div>
+    <%= Airport.find(params[:departure_airport_id]).code %>
+    <div>Destino a:</div>
     <%= Airport.find(params[:arrival_airport_id]).code %>
-    
 <% end %>
 <% end %>
+
+<%= link_to "form", new_flight_path %>
+
+<%= render 'show' %>
