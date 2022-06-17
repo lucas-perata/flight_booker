@@ -1,0 +1,21 @@
+
+<div>
+
+    <h2>Datos sobre la reserva:</h2>
+
+    <p>El vuelo parte desde: <%= @flight.departure_airport.code %></p>
+    
+    <p>Hasta: <%= @flight.arrival_airport.code %></p>
+     
+    <p>En la fecha de: <%= @flight.scheduled_on %></p>
+     
+    <p>Número de pasajes a reservar: <%= params[:passengers] %></p>
+    
+</div>
+
+<% params[:passengers].to_i.times do %>
+<div>
+    <h2>Información sobre los pasajeros</h2>
+
+</div>
+<% end %>

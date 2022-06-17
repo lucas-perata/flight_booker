@@ -3,6 +3,7 @@ class FlightsController < ApplicationController
     def index
       @flights = Flight.all
       @airport_options = Airport.all.map {|a| [a.code, a.id]}
+      @flight_selected = Flight.find_by(scheduled_on: params[:date])
 
       @available_flight = Flight.where(arrival_airport_id: params[:arrival_airport_id], departure_airport_id: params[:departure_airport_id], 
         scheduled_on: params[:date])

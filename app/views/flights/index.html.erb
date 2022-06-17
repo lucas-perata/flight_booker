@@ -23,9 +23,14 @@
     <div>Destino a:</div>
     <%= Airport.find(params[:arrival_airport_id]).code %>
     <div>Fecha de salida:</div>
-    <%= Flight.find_by(scheduled_on: params[:date]).scheduled_on %>
+    <%= @flight_selected.scheduled_on %>
     <div>Pasajes a sacar:</div>
     <%= params[:passengers] %>
+
+
+<div>
+    <%= button_to 'Book flight', new_booking_path, method: :get, params: {flight_id: @flight_selected.id, passengers: params[:passengers]} %>
+</div>
 
     <% end %>
 <% end %>
@@ -35,3 +40,4 @@
 <%= link_to "form", new_flight_path %> <br>
 
 <%= render 'show' %>
+
