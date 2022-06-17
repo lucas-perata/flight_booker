@@ -1,0 +1,12 @@
+<div>
+    <h2>Detalles sobre la reserva</h2>
+
+   <% @booking.passengers.each_with_index do |passenger, idx| %>
+                
+                <h3>Pasajero <%= @n %></h3>
+              <p>Nombre: <%= passenger.name %></p>
+              <p>Email: <%= passenger.name %></p>
+                <% @n += 1 %>
+          <% end %>
+    
+</div>

@@ -10,13 +10,21 @@ class BookingsController < ApplicationController
 
     def create 
         @booking = Booking.new(booking_params)
+        
 
         if @booking.save 
             flash.notice ="Vuelo reservado"
-            render :new
+            redirect_to @booking
         else 
             redirect_to new_flight_path
         end  
+    end 
+
+    def show 
+
+        @booking = Booking.find(params[:id])
+
+        @n = 1
     end 
 
     private 
